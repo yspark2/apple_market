@@ -16,6 +16,11 @@ class MarketListAdapter(val items: MutableList<MarketItems>) :
         fun onClick(view: View, position: Int)
     }
 
+    var longItemClick: LongItemClick? = null
+    interface LongItemClick{
+        fun onLongClick(view:View, position: Int)
+
+    }
     var itemClick: ItemClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarketListAdapter.Holder {
@@ -27,6 +32,7 @@ class MarketListAdapter(val items: MutableList<MarketItems>) :
     private val list = ArrayList<MarketItems>()
 
     override fun onBindViewHolder(holder: MarketListAdapter.Holder, position: Int) {
+
         holder.itemView.setOnClickListener { // 클릭 이벤트 추가 부분
             itemClick?.onClick(it, position)
         }
@@ -37,6 +43,9 @@ class MarketListAdapter(val items: MutableList<MarketItems>) :
         holder.price.text = decimalFormat.format(items[position].price) + "원"
         holder.chat.text = items[position].chat.toString()
         holder.good.text = items[position].good.toString()
+        holder.ivGood.setImageResource(items[position].ivGood)
+
+
     }
 
     override fun getItemCount(): Int {
@@ -54,5 +63,12 @@ class MarketListAdapter(val items: MutableList<MarketItems>) :
         val price = binding.marketItemTvPrice
         val chat = binding.marketItemTvChat
         val good = binding.marketItemTvGood
+        val ivGood = binding.marketItemIvGood
+        init {
+            binding.root.setOnLongClickListener {
+                longItemClick?.onLongClick(it, adapterPosition)
+                true
+            }
+        }
     }
 }

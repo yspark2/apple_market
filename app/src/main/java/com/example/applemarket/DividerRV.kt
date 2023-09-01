@@ -17,10 +17,10 @@ class DividerRV(): RecyclerView.ItemDecoration() {
         for(i in 0 until parent.childCount) {
             val view = parent.getChildAt(i)
             val top = view.bottom.toFloat() + (view.layoutParams as RecyclerView.LayoutParams).bottomMargin
-            val bottom = top + height   // 세로 길이 = 5 (bottom - top = height)
+            val bottom = top + height  // 세로 길이 = 5 (bottom - top = height)
 
             // 좌표 (left, top) / (right, bottom) 값을 대각선으로 가지는 사각형
-            c.drawRect(left + widthMargin, top, right - widthMargin, bottom, paint)
+            c.drawRect(left + widthMargin, top + 10, right - widthMargin, bottom + 10, paint)
         }
     }
 }

@@ -11,7 +11,7 @@ data class MarketItems(
     val nickname: String,
     val price: Int,
     val addr: String,
-    val good: Int,
     val chat: Int,
+    var good: Int,
+    var ivGood: Int,
 ) : Parcelable {}
-

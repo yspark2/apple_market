@@ -7,18 +7,24 @@
     tools:context=".MainActivity">
 
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/main_activity_spinner"
+    <TextView
+        android:id="@+id/main_activity_tv_nbcamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/spinner_shape"
-        android:gravity="center"
-        android:paddingEnd="10dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/spinner_style"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="내배캠동"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@+id/main_activity_tv_nbcamp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/down_arrow"/>
 
     <ImageView
         android:id="@+id/main_activity_alarm"
@@ -38,7 +44,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_activity_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_tv_nbcamp"
+        tools:itemCount="5"
+        tools:listitem="@layout/market_item_list" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_activity_fab_upward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/floating_action_button_shape"
+        android:backgroundTint="@color/white"
+        app:rippleColor="@color/blue"
+        app:fabCustomSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
